@@ -11,6 +11,8 @@ pygame.display.set_caption("Planet Simulation")
 
 WHITE = (255, 255, 255)
 YELLOW = (255, 255, 0)
+BLUE = (100, 149, 237)
+RED = (188, 39, 50)
 
 # CLASS?
 
@@ -48,12 +50,16 @@ def main():
     run = True
     clock = pygame.time.Clock()
 
+    # PLANETS
+
     sun = Planet(0, 0, 30, YELLOW, 1.98892 * 10**30)
     sun.sun = True
+    earth = Planet(-1 * Planet.AU, 0, 16, BLUE, 5.9742 * 10**24)
+    mars = Planet(-1.524 * Planet.AU, 0, 12, RED, 6.39 * 10**23)
 
-    earth = Planet(-1 * PLANET.AU, 0, 16, BLUE, 5.9742 * 10**24)
+    planets = [sun, earth, mars]
 
-    planets = [sun]
+    # MAIN LOOP
 
     while run:
         clock.tick(60)
