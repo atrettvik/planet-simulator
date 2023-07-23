@@ -10,6 +10,7 @@ pygame.display.set_caption("Planet Simulation")
 # VARIABLES
 
 WHITE = (255, 255, 255)
+YELLOW = (255, 255, 0)
 
 # CLASS?
 
@@ -47,14 +48,23 @@ def main():
     run = True
     clock = pygame.time.Clock()
 
+    sun = Planet(0, 0, 30, YELLOW, 1.98892 * 10**30)
+    sun.sun = True
+
+    earth = Planet(-1 * PLANET.AU, 0, 16, BLUE, 5.9742 * 10**24)
+
+    planets = [sun]
+
     while run:
         clock.tick(60)
-        # WIN.fill(WHITE)
-        # pygame.display.update()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+
+        for planet in planets:
+            planet.draw(WIN)
+        pygame.display.update()
 
     pygame.quit()
 
