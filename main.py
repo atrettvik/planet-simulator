@@ -9,7 +9,7 @@ pygame.display.set_caption("Planet Simulation")
 
 # VARIABLES
 
-BLACK = (255, 255, 255)
+WHITE = (255, 255, 255)
 
 # EVENT LOOP
 
@@ -20,7 +20,9 @@ def main():
 
     while run:
         clock.tick(60)
-        WIN.fill(BLACK)
+        WIN.fill(WHITE)
+        pygame.display.update()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
