@@ -3,7 +3,7 @@ import math
 
 pygame.init()
 
-WIDTH, HEIGHT = 1000, 1000
+WIDTH, HEIGHT = 900, 800
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Planet Simulation")
 
@@ -14,6 +14,7 @@ YELLOW = (255, 255, 0)
 BLUE = (100, 149, 237)
 RED = (188, 39, 50)
 DARK_GREY = (80, 78, 81)
+
 
 # CLASS?
 
@@ -42,6 +43,21 @@ class Planet:
         x = self.x * self.SCALE + WIDTH / 2
         y = self.y * self.SCALE + HEIGHT / 2
         pygame.draw.circle(win, self.color, (x, y), self.radius)
+
+    def attraction(self, other):
+        other_x, other_y = other.x, other.y
+        distance_x = other.x - self.x
+        distance_y = other.y - self.y
+        distance = math.sqrt(distance_x**2 + distance.y**2)
+
+        if other.sun:
+            self.distance_to_sun = distance
+
+        force = self.g * self.mass * other.mass / distance**2
+        theta = math.atan2(distance_y, distance_x)
+        force_x = math.cos(theta) * force
+        force_y = math.cos(theta) * force
+        return force_x, force_y
 
 
 # EVENT LOOP
