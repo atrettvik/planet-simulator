@@ -72,8 +72,8 @@ class Planet:
         self.x_vel += total_fx / self.mass * self.TIMESTEP
         self.y_vel += total_fy / self.mass * self.TIMESTEP
 
-        self.x = self.x_vel * self.TIMESTEP
-        self.y = self.y_vel * self.TIMESTEP
+        self.x += self.x_vel * self.TIMESTEP
+        self.y += self.y_vel * self.TIMESTEP
         self.orbit.append((self.x, self.y))
 
 
