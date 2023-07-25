@@ -16,7 +16,7 @@ RED = (188, 39, 50)
 DARK_GREY = (80, 78, 81)
 
 
-# CLASS?
+# CLASS
 
 
 class Planet:
